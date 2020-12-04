@@ -3,7 +3,9 @@ const holes = document.querySelectorAll('.hole'),
       bestScore = document.querySelector('.best-score'),
       moles = document.querySelectorAll('.mole'),
       start = document.getElementById('start-game');
+
 let lastHole,
+    lastStrike,
     isTimeOut = false,
     currentScore = 0,
     savedScore = 0;
@@ -23,7 +25,7 @@ function randomHole(holes) {
 }
 
 function moleGetOut() {
-  let time = randomTime(200, 1000),
+  let time = randomTime(200, 800),
     hole = randomHole(holes);
   hole.classList.add('up');
   setTimeout(() => {
@@ -47,20 +49,28 @@ function setBestScore() {
 }
 
 function startGame() {
+  scoreBoard.textContent = 0;
+  isTimeOut = false;
+  this.disabled = true;
   if (currentScore > savedScore) {
     savedScore = currentScore;
     setBestScore();
   }
-  scoreBoard.textContent = 0;
-  isTimeOut = false;
   currentScore = 0;
   moleGetOut();
-  setTimeout(() => (isTimeOut = true), 10000);
+  setTimeout(() => {
+    isTimeOut = true;
+    this.disabled = false;
+  }, 20000);
+  getBestScore();
 }
 
 function strikeMole(event) {
   if (!event.isTrusted) return; // Cheater!
-  currentScore++;
+  if (lastStrike !== this.dataset.strike) {
+    currentScore++;
+  }
+  lastStrike = this.dataset.strike;
   this.classList.remove('up');
   scoreBoard.textContent = currentScore;
 }
