@@ -1,10 +1,7 @@
 # whack-a-mole
 
-**[Task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/stage-0/projects.md#task-10-whack-a-mole-40)**
-
-**[DEMO](https://leonidshatilo.github.io/whack-a-mole/)**
-
----
+[![TASK](https://img.shields.io/badge/-TASK-green?style=flat)](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/stage-0/projects.md#task-10-whack-a-mole-40)
+[![DEMO](https://img.shields.io/badge/-DEMO-blue?style=flat)](https://leonidshatilo.github.io/whack-a-mole/)
 
 **Description**
 
